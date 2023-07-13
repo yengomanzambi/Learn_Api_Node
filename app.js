@@ -4,14 +4,13 @@ const morgan=require('morgan')
 const favicon= require('serve-favicon')
 const bodyParser=require('body-parser')
 const path= require('path')
-const {Sequelize}= require('sequelize')
+const {Sequelize,DataTypes}= require('sequelize')
+const pokemonModel=require("./src/models/pokemon")
 
 const express= require("express")
 const { lookup } = require("dns")
 const app= express()
 const port = 4000
-
-
 const sequelize= new Sequelize(
     'pokedex',
     'root',
@@ -20,23 +19,30 @@ const sequelize= new Sequelize(
         dialect:"mariadb",
         host:"localhost",
         dalectOptions: {
-            timezone:"false",
+            timezone:"Etc/GMT-2",
         },
         logging:false
     }, 
 )
+
+
+// Connexion avec la base de données
+
 sequelize.authenticate()
 .then(()=>console.log("connexion à la base de données reussi"))
 .catch((error)=>console.log(`connexion echoue ${error}`))
+const Pokemon =pokemonModel(sequelize,DataTypes)
+// Synchronisation envoie des champs de notre models dans la base de données maria db 
+sequelize.sync({force:true})
+.then(()=>console.log("la synchronisation avec la base de données reussi"))
 
-
-
+//Middleware
 app
 .use(favicon(path.join(__dirname,'favicon.ico')))
-
 .use(morgan('dev'))
 .use(bodyParser.json())
 
+// End point
 
 app.get("/api/pokemons",(req,res)=>{
 const message=" voici la liste de tous les pokemon"
