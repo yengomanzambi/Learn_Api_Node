@@ -4,10 +4,31 @@ const morgan=require('morgan')
 const favicon= require('serve-favicon')
 const bodyParser=require('body-parser')
 const path= require('path')
+const {Sequelize}= require('sequelize')
 
 const express= require("express")
+const { lookup } = require("dns")
 const app= express()
 const port = 4000
+
+
+const sequelize= new Sequelize(
+    'pokedex',
+    'root',
+    '',
+    {
+        dialect:"mariadb",
+        host:"localhost",
+        dalectOptions: {
+            timezone:"false",
+        },
+        logging:false
+    }, 
+)
+sequelize.authenticate()
+.then(()=>console.log("connexion à la base de données reussi"))
+.catch((error)=>console.log(`connexion echoue ${error}`))
+
 
 
 app

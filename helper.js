@@ -5,7 +5,6 @@ exports.success=(message,data)=>{
     }
 
 }
-
 exports.getIdUnic=(pokemons)=>{
     const arrayId= pokemons.map((pokemon)=>pokemon.id)
     const maxId= arrayId.reduce((a,b)=>Math.max(a,b))
