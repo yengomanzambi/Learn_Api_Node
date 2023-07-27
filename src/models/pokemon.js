@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, DataTypes) => {
-  return sequelize.define("pokemon", {
+  return sequelize.define('Pokemon', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -22,14 +22,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    type: {
+    types: {
       type: DataTypes.STRING,
       allowNull: false,
     },
   },
   {
-    timestamps: true,
-    createdAt: 'created',
-    updatedAt: false
+    timestamps:true,
+    createdAt:'created',
+    updatedAt:false
   });
 };
