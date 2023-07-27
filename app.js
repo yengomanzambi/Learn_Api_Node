@@ -25,6 +25,7 @@ app
 // End points
 require('./src/routes/findAllPokemons')(app)
 require('./src/routes/findByPkPokemon')(app)
+require('./src/routes/createPokemon')(app)
 
 
 
