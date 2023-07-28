@@ -29,6 +29,13 @@ require('./src/routes/createPokemon')(app)
 require('./src/routes/updatePokemon')(app)
 require('./src/routes/deletePokemon')(app)
 
+// management error 
+
+app.use(({res})=>{
+    const message="impossible de trouver la ressource démande essaye une atre URL."
+    res.status(404).json({message})
+})
+
 
 
 

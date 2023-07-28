@@ -25,9 +25,15 @@ module.exports = (app) => {
       where: { id: id }
     })
     .then(_ => {
-      Pokemon.findByPk(id).then(pokemon => {
+     return Pokemon.findByPk(id).then(pokemon => {
+
+        if(pokemon===null){
+            return res.status(404).json({error: "le pokemon n\'existe"  })
+        }
         const message = `Le pokémon ${pokemon.name} a bien été modifié.`
         res.json({message, data: pokemon })
+      }).catch(error=>{
+        res.status(500).json({message:"Nous avons pas pu modifier un pokemon ressayer plustard"})
       })
     })
   })

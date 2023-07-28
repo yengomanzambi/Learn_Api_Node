@@ -13,10 +13,15 @@ module.exports = (sequelize, DataTypes) => {
     hp: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      
     },
     cp: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      validate:{
+      isInt:{msg:"veuillez entrer un nombre svp"}
+      }
+      
     },
     picture: {
       type: DataTypes.STRING,
