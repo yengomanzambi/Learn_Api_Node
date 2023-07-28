@@ -26,6 +26,9 @@ app
 require('./src/routes/findAllPokemons')(app)
 require('./src/routes/findByPkPokemon')(app)
 require('./src/routes/createPokemon')(app)
+require('./src/routes/updatePokemon')(app)
+require('./src/routes/deletePokemon')(app)
+
 
 
 
