@@ -1,19 +1,4 @@
 
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
 const { Pokemon } = require('../db/sequelize')
   
 
@@ -26,7 +11,6 @@ module.exports = (app) => {
     })
     .then(_ => {
      return Pokemon.findByPk(id).then(pokemon => {
-
         if(pokemon===null){
             return res.status(404).json({error: "le pokemon n\'existe"  })
         }

@@ -19,7 +19,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate:{
-      isInt:{msg:"veuillez entrer un nombre svp"}
+      isInt:{msg:"veuillez entrer un nombre svp entier"},
+      notNull:{msg:"ce champs est obligatoire svp"}
+
       }
       
     },
