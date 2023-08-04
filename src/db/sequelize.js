@@ -1,12 +1,10 @@
-
 const { Sequelize, DataTypes } = require('sequelize')
 const PokemonModel = require('../models/pokemon')
 const pokemons = require('./pokemon')
-  
-const sequelize = new Sequelize('pokedex', 'root', '', {
+const sequelize = new Sequelize('pokedex2','root','',{
   host: 'localhost',
   dialect: 'mariadb',
-  dialectOptions: {
+  dialectOptions:{
     timezone: 'Etc/GMT-2',
   },
   logging: false
@@ -14,10 +12,7 @@ const sequelize = new Sequelize('pokedex', 'root', '', {
 sequelize.authenticate()
 .then(()=>console.log("connexion à la base de données reussi"))
 .catch((error)=>console.log(`connexion echoue ${error}`))
-
-  
 const Pokemon = PokemonModel(sequelize, DataTypes)
-  
 const initDb = () => {
   return sequelize.sync({force: true}).then(_ => {
     pokemons.map(pokemon => {
@@ -31,8 +26,7 @@ const initDb = () => {
     })
     console.log('La base de donnée a bien été initialisée !')
   })
-}
-  
+} 
 module.exports = { 
   initDb, Pokemon
 }

@@ -61,6 +61,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           isUrl: { msg: "veuillez entrez un url valide pour ton image" },
+          notNull: { msg: "le champs picture  est  obligatoire svp" },
         },
       },
       types: {
