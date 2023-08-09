@@ -1,6 +1,6 @@
 
 
-const morgan=require('morgan')
+// const morgan=require('morgan')
 const favicon= require('serve-favicon')
 const bodyParser=require('body-parser')
 const path= require('path')
@@ -8,18 +8,21 @@ const sequelize=require('./src/db/sequelize')
 
 const express= require("express")
 const app= express()
-const port = 4000
+const port = process.env.PORT||4000
 
 
 
 // Connexion avec la base de données
 sequelize.initDb()
+app.get("/",(req,res)=>{
+    res.json("hello vercel en ligne")
+})
 
 
 //Middleware
 app
 .use(favicon(path.join(__dirname,'favicon.ico')))
-.use(morgan('dev'))
+// .use(morgan('dev'))
 .use(bodyParser.json())
 
 // End points

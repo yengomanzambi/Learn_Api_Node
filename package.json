@@ -4,12 +4,13 @@
   "description": "apprendre à creer des api rest",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "NODE_ENV=production node app.js",
+    "dev":" NODE_ENV=development nodemon app.js"
   },
   "author": "Gracius",
   "license": "ISC",
   "devDependencies": {
-    "morgan": "^1.10.0",
+  
     "nodemon": "^3.0.1"
   },
   "dependencies": {
