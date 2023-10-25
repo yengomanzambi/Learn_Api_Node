@@ -1,4 +1,3 @@
-
 const { Pokemon } = require('../db/sequelize')
    // DELETE : http://localhost:4000/api/pokemon
 module.exports = (app) => {
@@ -18,13 +17,17 @@ module.exports = (app) => {
 
 
 
+
+
+
+
 // const { Pokemon } = require('../db/sequelize')
 //   //DELETE : http://localhost:4000/api/pokemons
 // module.exports = (app) => {
 //   app.delete('/api/pokemons/:id', (req, res) => {
 //     Pokemon.findByPk(req.params.id).then(pokemon => {
 //         if(pokemon===null){
-//             return res.status(404).json({error: "le pokemon n\'existe"  })
+//             return res.status(404).json({error: "le pokemon n\'existe"  })          
 //         }
 //         console.log('fff'+pokemon)
 //       const pokemonDeleted = pokemon;

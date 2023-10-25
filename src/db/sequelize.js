@@ -3,8 +3,8 @@ const PokemonModel = require('../models/pokemon')
 const UserModel = require('../models/user')
 const pokemons = require('./pokemon')
 const bcrypt=require('bcrypt')
-const sequelize = new Sequelize('pokedex2','root','',{
-  host: 'localhost',
+const sequelize = new Sequelize('b3q7hsm6lzpghkm7zlyu','uwksfbgxqkuypjwu','DKG2T4XPZz2jbQz3HKXo',{
+  host: 'b3q7hsm6lzpghkm7zlyu-mysql.services.clever-cloud.com',
   dialect: 'mariadb',
   dialectOptions:{
     timezone: 'Etc/GMT-2',
